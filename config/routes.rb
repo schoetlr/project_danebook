@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'logout' => 'sessions#destroy', as: :logout
+  get 'login' => 'sessions#new', as: :login
+
+  resource :session
+  resources :users
+
   get 'about' => 'static_pages#about'
   get 'about_edit'  => 'static_pages#about_edit'
   get 'friends' => 'static_pages#friends'
