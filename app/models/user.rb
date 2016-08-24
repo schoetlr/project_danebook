@@ -9,6 +9,17 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
 
+
+  has_one :profile
+  accepts_nested_attributes_for :profile, 
+                                :reject_if => :all_blank, 
+                                :allow_destroy => true
+
+  
+  def name
+    "#{self.profile.first_name} #{self.profile.last_name}"
+  end
+
   def generate_token
     begin 
       self[:auth_token] = SecureRandom.urlsafe_base64

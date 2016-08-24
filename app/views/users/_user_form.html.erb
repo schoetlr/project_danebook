@@ -1,9 +1,7 @@
 <%= form_for user do |user_fields| %>
-   <!--
-  <%#= user_fields.label :name %>
-  <%#= user_fields.text_field :name %>
-  <br>
-  -->
+  
+  
+  
   <%= user_fields.label :email %>
   <%= user_fields.text_field :email %>
   <br>
@@ -11,7 +9,41 @@
   <%= user_fields.password_field :password %>
   <br>
   <%= user_fields.label :password_confirmation %>
-  <%= user_fields.password_field :password_confirmation %>
+  <%= user_fields.password_field :password_confirmation %><br/>
+
+  <%= user_fields.fields_for :profile do |profile_fields| %>
+
+    <%= profile_fields.label :first_name %>
+    <%= profile_fields.text_field :first_name %>
+    <br>
+
+    <%= profile_fields.label :last_name %>
+    <%= profile_fields.text_field :last_name %>
+    <br>
+    
+    <%= profile_fields.label :phone %>
+    <%= profile_fields.text_field :phone %><br/>
+
+    <%= profile_fields.label :birthday %>
+    <%= profile_fields.date_select :birthday %><br/>
+
+    <%= profile_fields.label :college %>
+    <%= profile_fields.text_field :college %><br/>
+
+    <%= profile_fields.label :hometown %>
+    <%= profile_fields.text_field :hometown %><br/>
+
+    <%= profile_fields.label :current_location %>
+    <%= profile_fields.text_field :current_location %><br/>
+
+    <%= profile_fields.label :about %>
+    <%= profile_fields.text_area :about %><br/>
+
+    <%= profile_fields.label :words_to_live_by, "Words to Live By" %>
+    <%= profile_fields.text_area :words_to_live_by %><br/>
+
+
+  <% end %>
 
   <%= user_fields.submit %>
 <% end %>

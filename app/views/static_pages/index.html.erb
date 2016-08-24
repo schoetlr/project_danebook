@@ -2,7 +2,7 @@
       <h1>Danebook Pages</h1>
 </header>
 <main class="container text-center">
-  <a href="about.html">About</a> | 
+  <%= link_to "About", user_path(current_user.id)  %>| 
   <a href="about_edit.html">About Edit</a> | 
   <a href="friends.html">Friends</a> | 
   <a href="photos.html">Photos</a> | 

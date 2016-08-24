@@ -1,2 +1,127 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<nav id="top-navbar" class="navbar navbar-default navbar-static" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a class="navbar-brand" href="/">
+            <img src="assets/danish_flag.gif" class = "img-responsive img-circle" alt="Denmark 4eva" height = "28px" width = "36px">
+          </a>
+          <a class="navbar-brand" href="/">
+            Danebook
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" id="nav-search-bar" class="form-control" placeholder="Search">
+                </div>
+              </form>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li  class="hidden-sm pull-right"><a href="about.html" id = "navbar-username"><%= @user.name %></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse-->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <main>
+      <header class = "container" id="cover">
+
+        <!--cover images-->
+        <div class = "row">
+          <img class = "cover-photo hidden-sm hidden-xs" width= "100%" height = "350px" src ="assets/hogwarts_small.jpg">
+          <div class="col-md-12 hidden-xs hidden-sm profile-image">
+            <img src="assets/harry_potter_small.jpg" height="200px" width="180px">
+          </div>
+        </div>
+
+        <!--secondary navbar-->
+        <div id = "profile-nav" class = "row">
+          <div class = "col-md-7 col-md-offset-3">
+            <ul class = "nav nav-tabs " role = "profile-nav">
+              <li><a href = "timeline.html">Timeline</a></li>
+              <li class = "active"><%= link_to "About", user_path(@user) %></li>
+              <li ><a href = "photos.html">Photos <span class="link-count hidden-xs">(123)</span></a></li>
+              <li><a href = "friends.html">Friends <span class="link-count hidden-xs">(542)</span></a></li>
+          </div>
+
+          <div class = "col-md-2">
+            <ul class = "nav">
+            <% if signed_in_user? %>
+              <li><%= link_to "Edit Profile", edit_user_path(@user), class: "edit-profile-link" %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+
+
+<!-- THIS PART CHANGES PAGE BY PAGE -->
+      <section class="container" id="information-pane">
+        <header class="row">
+          <div class="col-md-offset-2 col-md-8 about-header">
+            <h2>About</h2>
+          </div>
+          <form class="col-md-2 about-header" action="about_edit.html">
+            <div class="form-group">
+              <button type="submit" class="btn btn-default" id="edit-profile-button">Edit your Profile</button>
+            </div>
+          </form>
+        </header>
+
+
+        <div class = "row">
+          <div class = "col-md-5 col-md-offset-1">
+            <h3>Basic Information</h3>
+            <table class = "table about-table">
+              <tr>
+                <td>Birthday:</td>
+                <td><%= @user.profile.birthday %></td>
+              </tr>
+              <tr>
+                <td>College:</td>
+                <td><%= @user.profile.college %></td>
+              </tr>
+              <tr>
+                <td>Hometown:</td>
+                <td><%= @user.profile.hometown %></td>
+              </tr>
+              <tr>
+                <td>Currently Lives:</td>
+                <td><%= @user.profile.current_location %></td>
+              </tr>
+            </table>
+
+            <h3>Contact Information</h3>
+            <table class = "table about-table">
+              <tr>
+                <td>Email:</td>
+                <td><%= @user.email %></td>
+              </tr>
+              <tr>
+                <td>Telephone:</td>
+                <td><%= @user.profile.phone %></td>
+              </tr>
+            </table>
+
+          </div>
+
+          <div class = "col-md-5">
+            <h3>Words to live by</h3>
+            <p><%= @user.profile.words_to_live_by %></p>
+            <h3>About me</h3>
+            <p><%= @user.profile.about %></p>
+          </div>
+        </div>
+      </section>
+
+    </main>

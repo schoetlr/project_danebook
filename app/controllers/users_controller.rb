@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.build_profile
   end
 
   def index
@@ -42,7 +43,17 @@ class UsersController < ApplicationController
   private
 
   def whitelisted_params
-    params.require(:user).permit(:email, :password, :password_digest)
+    params.require(:user).permit(:email,
+                                 :password, 
+                                 :password_confirmation,
+                                 { 
+                                  :profile_attributes => [
+                                  :phone, :birthday,
+                                  :college, :hometown,
+                                  :current_location, :about,
+                                  :words_to_live_by ]
+                                 }
+                                 )
   end
 
   def set_user
