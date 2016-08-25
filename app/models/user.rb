@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
                                 :reject_if => :all_blank, 
                                 :allow_destroy => true
 
+  has_many :posts
+
   
   def name
     "#{self.profile.first_name} #{self.profile.last_name}"

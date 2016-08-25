@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   
+  
+
   get 'logout' => 'sessions#destroy', as: :logout
   get 'login' => 'sessions#new', as: :login
 
   resource :session
-  resources :users
+  resources :users do 
+    resources :posts
+  end
+
 
   get 'about' => 'static_pages#about'
   get 'about_edit'  => 'static_pages#about_edit'

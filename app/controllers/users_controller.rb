@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     @user = User.new(whitelisted_params)
     if @user.save
       flash[:success] = "User successfully created"
-      sign_in(@user)
+      sign_in(@user) 
       redirect_to user_path(@user)
     else
       flash[:error] = "Something went wrong"
