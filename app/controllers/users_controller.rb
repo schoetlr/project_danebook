@@ -19,7 +19,13 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    if @user.update(whitelisted_params)
+      flash[:success] = "User successfully updated"
+      redirect_to user_path(@user)
+    else
+      flash[:error] = "Something went wrong"
+      render :edit
+    end
   end
 
   def create
