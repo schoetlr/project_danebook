@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'friends' => 'static_pages#friends'
   get 'photos' => 'static_pages#photos'
   get 'timeline' => 'static_pages#timeline'
+  
   root 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

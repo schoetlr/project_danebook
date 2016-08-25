@@ -71,11 +71,11 @@
           <div class="col-md-offset-2 col-md-8 about-header">
             <h2>About</h2>
           </div>
-          <form class="col-md-2 about-header" action="about_edit.html">
+          <div class="col-md-2 about-header">
             <div class="form-group">
-              <button type="submit" class="btn btn-default" id="edit-profile-button">Edit your Profile</button>
+              <%= link_to "Edit you Profile", edit_user_path(@user), class: "btn btn-default", id: "edit-profile-button" %>
             </div>
-          </form>
+          </div>
         </header>
 
 

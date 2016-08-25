@@ -14,9 +14,9 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:error] = "You couldn't be signed in"
-      render :new
+      redirect_to :back
     end
-    
+
   end
 
   def destroy

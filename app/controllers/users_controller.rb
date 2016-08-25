@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:error] = "Something went wrong"
-      render :new
+      redirect_to :back
     end
 
   end
@@ -57,7 +57,8 @@ class UsersController < ApplicationController
                                   :phone, :birthday,
                                   :college, :hometown,
                                   :current_location, :about,
-                                  :words_to_live_by ]
+                                  :words_to_live_by,
+                                  :gender ]
                                  }
                                  )
   end
