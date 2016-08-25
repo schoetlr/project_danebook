@@ -58,7 +58,9 @@ class UsersController < ApplicationController
                                   :college, :hometown,
                                   :current_location, :about,
                                   :words_to_live_by,
-                                  :gender ]
+                                  :gender,
+                                  :first_name,
+                                  :last_name ]
                                  }
                                  )
   end
