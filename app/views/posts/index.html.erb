@@ -1,4 +1,5 @@
 <%= render partial: 'layouts/backdrop', locals: { :user => @user } %>
+<%= render 'flash' %>
 
       <section class = "container" id="timeline">
         <div class = "row" id = "information-column">
@@ -220,9 +221,9 @@
                         <div class = "col-md-10">
                           <p class = "col-md-12"><a href="#"><%= comment.user.name %></a> Said on <%= comment.created_at %></p>
                           <p class = "col-md-12"><%= comment.content %></p>
-                          <%= like_link_display(comment) %>
-                          <span class = "col-md-10 col-md-offset-1"><%= who_liked_display(comment) %></span>
-
+                          <%= like_link_display_comment(comment) %>
+                          <span class = "col-md-10"><%= who_liked_display_comment(comment) %></span>
+                          <%= display_delete_link_comment(comment) %>
                       <% end %>
                     <% end %>
                 </article> <!--comment-->

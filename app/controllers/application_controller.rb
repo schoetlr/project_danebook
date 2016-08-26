@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def signed_in_user?
-    !!@current_user
+    !!current_user
   end
   helper_method :signed_in_user?
 
@@ -41,10 +41,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  
+
 
   def require_current_user
-    unless params[:user_id] == curent_user.id
+    unless params[:user_id] == current_user.id
       flash[:error] = "Not signed in"
       redirect_to :back
     end

@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :require_current_user, only: [:create, :destroy]
   
   def create
     @likeable = extract_likeable

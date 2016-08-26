@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :require_login, only: [:create, :destroy]
 
   def create
     post = Post.find(params[:post_id])
@@ -9,6 +10,18 @@ class CommentsController < ApplicationController
       redirect_to :back
     else
       flash[:error] = "Something went wrong"
+      redirect_to :back
+    end
+
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      flash[:success] = "Comment destroyed"
+      redirect_to :back
+    else
+      flash[:error] = "Comment could not be destroyed"
       redirect_to :back
     end
   end
