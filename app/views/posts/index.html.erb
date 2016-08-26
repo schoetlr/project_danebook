@@ -193,7 +193,7 @@
                   </div>
                   <div class="col-md-10">
                     <p><%= link_to @user.name, @user %></p>
-                    <p class = "date-posted">Posted on <%= post.created_at %></p>
+                    <p class = "date-posted">Posted on <%= post.created_at.strftime("%m-%d-%Y") %></p>
                   </div>
                 </header>
 
@@ -202,12 +202,12 @@
                 </section>
 
                 <section class = "col-md-12 like-section">
-                  
-                  <%= link_to "Like", post_likes_path(post.id), method: "POST", class: "col-md-1" %>
+                  <%= like_link_display(post) %>
                   <a class="col-md-2" href = "#">Comment</a>
                   <% if require_current_user %>
                     <%= link_to "Delete", post_path(post), method: "delete", class: "col-md-1 pull-right" %>
                   <% end %>
+                  <p class="col-md-12"><%= who_liked_display(post) %></p>
                 </section>
 
               </article><!--post 1-->

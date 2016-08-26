@@ -14,4 +14,16 @@ class LikesController < ApplicationController
   end
 
 
+  def destroy
+    @like = Like.find(params[:id])
+    if @like.destroy
+      flash[:success] = "Like successfully destroyed"
+      redirect_to :back
+    else 
+      flash[:error] = "Couldn't unlike post"
+      redirect_to :back
+    end
+  end
+
+
 end
