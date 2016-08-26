@@ -19,11 +19,11 @@ module PostsHelper
       remainder = likes.count - 1
       
       if current_user.id == first_user.id
-        str = "You and #{remainder} others likes this."
+        str = "You and #{pluralize(remainder, "other")} likes this."
       elsif current_user && likes.map { |like| like.user }.include?(current_user)
-        str = "You and #{link_to first_user.name, user_path(first_user)}" + " and #{remainder} others likes this."
+        str = "You and #{link_to first_user.name, user_path(first_user)}" + " and #{pluralize(remainder, "other")} likes this."
       else
-        str = "#{link_to first_user.name, user_path(first_user)}" + " and #{remainder} others likes this."
+        str = "#{link_to first_user.name, user_path(first_user)}" + " and #{pluralize(remainder, "other")} likes this."
       end
       str.html_safe
     end

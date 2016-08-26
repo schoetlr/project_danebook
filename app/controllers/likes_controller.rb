@@ -1,8 +1,8 @@
 class LikesController < ApplicationController
   
   def create
-    @post = Post.find(params[:post_id])
-    @like = @post.likes.build
+    @likeable = extract_likeable
+    @like = @likeable.likes.build
     @like[:user_id] = current_user.id
     if @like.save
       flash[:success] = "Successfully liked post"
@@ -23,6 +23,16 @@ class LikesController < ApplicationController
       flash[:error] = "Couldn't unlike post"
       redirect_to :back
     end
+  end
+
+
+  private
+
+
+  def extract_likeable
+    resource, id = request.path.split('/')[1,2]
+
+    resource.singularize.classify.constantize.find(id)
   end
 
 
