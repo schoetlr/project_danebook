@@ -1,7 +1,6 @@
 module PostsHelper
 
   def like_link_display(post)
-    #<%= link_to "Like", post_likes_path(post.id), method: "POST", class: "col-md-1" %>
     
     if post.liked_by_user?(current_user)
       like = Like.where(user_id: current_user.id).first
@@ -26,6 +25,14 @@ module PostsHelper
       else
         str = "#{link_to first_user.name, user_path(first_user)}" + " and #{remainder} others likes this."
       end
+      str.html_safe
+    end
+  end
+
+  def display_delete_link(post)
+    if require_current_user
+      str = link_to("Delete", post_path(post), method: "delete", class: "col-md-1 pull-right")
+
       str.html_safe
     end
   end

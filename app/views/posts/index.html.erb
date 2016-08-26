@@ -204,70 +204,10 @@
                 <section class = "col-md-12 like-section">
                   <%= like_link_display(post) %>
                   <a class="col-md-2" href = "#">Comment</a>
-                  <% if require_current_user %>
-                    <%= link_to "Delete", post_path(post), method: "delete", class: "col-md-1 pull-right" %>
-                  <% end %>
+                  <%= display_delete_link(post) %>
                   <p class="col-md-12"><%= who_liked_display(post) %></p>
                 </section>
 
-              </article><!--post 1-->
-            <% end %>
-
-            <article class = "row">
-              <header class = "col-md-12">
-                <div class ="col-md-2">
-                  <img class src = "assets/user_silhouette_generic.gif">
-                </div>
-                <div class="col-md-10">
-                  <p><a href="about.html">Harry Potter</a></p>
-                  <p class = "date-posted">Posted on Thursday 6/1/2014</p>
-                </div>
-              </header>
-
-              <section class = "col-md-12 post-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui</p>
-              </section>
-
-              <section class = "col-md-12 like-section">
-                <a class="col-md-1" href = "#">Like</a>
-                <a class="col-md-2" href = "#">Comment</a>
-                <a class = "col-md-1 pull-right" href = "#">Delete</a>
-                <p class="col-md-12"><a href="#">Hermione Granger</a> likes this.</p>
-              </section>
-
-            </article><!--post 2-->
-
-            <article class = "row">
-              <header class = "col-md-12">
-                <div class ="col-md-2">
-                  <img class src = "assets/user_silhouette_generic.gif">
-                </div>
-                <div class="col-md-10">
-                  <p><a href="about.html">Harry Potter</a></p>
-                  <p class = "date-posted">Posted on Thursday 6/1/2014</p>
-                </div>
-              </header>
-
-              <section class = "col-md-12 post-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui</p>
-              </section>
-
-              <section class = "col-md-12 like-section">
-                <a class="col-md-1" href = "#">Unlike</a>
-                <a class="col-md-2" href = "#">Comment</a>
-                <a class = "col-md-1 pull-right" href = "#">Delete</a>
-                <p class="col-md-12"><span>You and <a href="#">Hermione Granger</a> and 3 others like this.</span></p>
-              </section>
 
               <section class="col-md-12 comment-section">
                 <article class = "col-md-12 comment">
@@ -309,18 +249,23 @@
 
 
                 <!--post a comment form -->
-                <form class="col-md-12">
+                
+                <% comment = post.comments.build %>
+                <%= form_for [post, comment], :url => post_comments_path(post), html: {class: "col-md-12", method: "POST"} do |comment_fields| %>
                   <div class="form-group">
-                    <textarea class="form-control" rows="4" placeholder="Write a comment..."></textarea>
+                    <%= comment_fields.text_area :content, placeholder: "Write a comment...", class: "form-control", rows: "4" %>
                   </div>
                   <div class="form-group">
                     <a class="col-md-1" href="#">Cancel</a>
-                    <button type="submit" class="col-md-3 pull-right btn btn-default">Comment</button>
+                    <%= comment_fields.submit "Comment", class: "col-md-3 pull-right btn btn-primary" %>
                   </div>
-                </form>
+                <% end %>
               </section>
 
-            </article><!--post 3-->
+              </article><!--post 1-->
+            <% end %><!-- end posts loop ->
+
+            
 
           </div>
 
@@ -329,4 +274,4 @@
         </div>
       </section>
 
-    </main>
+    </main><!-- opening tag in backdrop partial ->

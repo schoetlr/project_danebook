@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = current_user.posts.new if current_user
     @posts = @user.posts
+    
   end
 
   def create
