@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', as: :login
 
   resource :session
-  resources :users do 
-    resources :posts
+  resources :users, shallow: true do 
+    resources :posts do 
+      resources :likes
+    end
   end
 
 

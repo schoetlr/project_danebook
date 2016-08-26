@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
                                 :allow_destroy => true
 
   has_many :posts
+  has_many :likes
 
   
   def name

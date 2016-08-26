@@ -202,10 +202,11 @@
                 </section>
 
                 <section class = "col-md-12 like-section">
-                  <a class="col-md-1" href = "#">Like</a>
+                  
+                  <%= link_to "Like", post_likes_path(post.id), method: "POST", class: "col-md-1" %>
                   <a class="col-md-2" href = "#">Comment</a>
                   <% if require_current_user %>
-                    <%= link_to "Delete", user_post_path(@user, post), method: "delete", class: "col-md-1 pull-right" %>
+                    <%= link_to "Delete", post_path(post), method: "delete", class: "col-md-1 pull-right" %>
                   <% end %>
                 </section>
 
