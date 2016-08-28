@@ -1,0 +1,25 @@
+<section class = "row" id = "timeline-about">
+  <header class="col-md-12">
+      <h4>About (text area)</h4>
+  </header>
+
+
+  <table class = "table about-table col-md-12">
+    <tr>
+      <td>Born on:</td>
+      <td><%= @user.profile.birthday %></td>
+    </tr>
+    <tr>
+      <td>Went to school at:</td>
+      <td><%= @user.profile.college %></td>
+    </tr>
+    <tr>
+      <td>Hometown:</td>
+      <td><%= @user.profile.hometown %></td>
+    </tr>
+    <tr>
+      <td>Currently Lives:</td>
+      <td><%= @user.profile.current_location %></td>
+    </tr>
+  </table>
+</section>
