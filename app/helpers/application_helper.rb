@@ -7,4 +7,8 @@ module ApplicationHelper
      false
     end
   end
+
+  def like_display
+    
+  end
 end
