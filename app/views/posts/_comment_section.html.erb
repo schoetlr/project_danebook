@@ -1,0 +1,13 @@
+<section class="col-md-12 comment-section">
+  
+  <% if post.comments.any? %>
+    <% post.comments.each do |comment| %>
+          <%= render partial: "comment", locals: { :comment => comment } %>
+      <% end %>
+  <% end %>
+      
+
+  <!--post a comment form -->
+  
+  <%= render partial: "comment_form", locals: {:post => post} %>
+</section>

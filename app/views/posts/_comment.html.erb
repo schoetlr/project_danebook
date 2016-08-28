@@ -1,0 +1,14 @@
+<article class ="col-md-12 comment">
+  <div class="col-md-2">
+    <img src="assets/user_silhouette_generic.gif">
+  </div>
+
+  <div class="col-md-10">
+    <p class="col-md-12"><a href="#"><%= comment.user.name %></a> Said on <%= comment.created_at %></p>
+    <p class = "col-md-12"><%= comment.content %></p>
+    <%= like_link_display_comment(comment) %>
+    <span class="col-md-10"><%= who_liked_display_comment(comment) %></span>
+    <%= display_delete_link_comment(comment) %>
+  </div>
+
+</article> <!--comment-->
