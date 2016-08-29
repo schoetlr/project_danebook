@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :require_current_user, only: [:create, :destroy, :index]
 
   def index
-    
+  
     @user = User.find(params[:user_id])
     @post = current_user.posts.new if current_user
     @posts = @user.posts

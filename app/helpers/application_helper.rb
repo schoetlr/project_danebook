@@ -11,7 +11,10 @@ module ApplicationHelper
   def like_display
 
   end
-
+  
+  def current(path)
+    "active" if current_page?(path)
+  end
 
   def page_links(user_id)
     if current_page?(controller: "posts", action: "index", id: user_id)

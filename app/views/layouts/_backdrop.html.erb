@@ -46,12 +46,14 @@
         <!--secondary navbar-->
         <div id = "profile-nav" class = "row">
           <div class="col-md-7 col-md-offset-3">
-            <ul class="nav nav-tabs " role = "profile-nav">
-              <li><%= link_to "Timeline", user_posts_path(@user) %></li>
-              <li class="active"><%= link_to "About", user_path(user.id) %>
+            <ul class="nav nav-tabs" role = "profile-nav">
+              <li class="<%= current(user_posts_path(@user)) %>"><%= link_to "Timeline", user_posts_path(@user) %></li>
+              <li class="<%= current(user_path(user.id)) %>"><%= link_to "About", user_path(user.id) %>
               </li>
-              <li ><a href="photos.html">Photos <span class="link-count hidden-xs">(123)</span></a></li>
-              <li><a href="friends.html">Friends <span class="link-count hidden-xs">(542)</span></a></li>
+              <li class="<%= current(photos_path) %>"><a href="photos.html">Photos <span class="link-count hidden-xs">(123)</span></a></li>
+              <li class="<%= current(friends_path) %>"><a href="friends.html">
+              Friends <span class="link-count hidden-xs">(542)</span></a></li>
+
           </div>
         </div>
       </header>
