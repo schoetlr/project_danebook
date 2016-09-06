@@ -19,7 +19,7 @@ puts "creating users"
               password: "password",
               password_confirmation: "password")
   
-  u.build_profile(phone: Faker::PhoneNumber.phone_number,
+  profile = u.build_profile(phone: Faker::PhoneNumber.phone_number,
                   birthday: Time.now,
                   college: Faker::University.name,
                   hometown: Faker::Address.city,
@@ -30,6 +30,7 @@ puts "creating users"
                   last_name: Faker::Name.name,
                   gender: ["male", "female"].sample
                   )
+  profile.save
 end
 
 def random_user_id

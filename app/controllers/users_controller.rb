@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :current_user, only: [:show, :edit, :index]
+  before_action :require_login, only: [:show, :edit, :index]
 
   def new
     @user = User.new
@@ -68,4 +68,6 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
+  
 end
