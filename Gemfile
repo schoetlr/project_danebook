@@ -39,6 +39,8 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do
@@ -49,6 +51,7 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'guard-rspec', require: false
 end
 
 group :production do 

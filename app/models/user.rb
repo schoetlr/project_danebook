@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
             :allow_nil => true
 
   validates :email, uniqueness: true
+  validates :email, presence: true
 
 
   has_one :profile
