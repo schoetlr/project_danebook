@@ -9,6 +9,10 @@ describe Comment do
     expect{comment.user}.to_not raise_error
   end
 
+  it "belongs to post" do 
+    expect{comment.post}.to_not raise_error
+  end
+
   it "has many likes" do 
     expect{comment.likes}.to_not raise_error
   end

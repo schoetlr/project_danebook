@@ -10,7 +10,9 @@ describe Like do
 
   end
 
-  
+  it "belongs to likeable models" do 
+    expect{like.likeable}.to_not raise_error
+  end
 
 
 
