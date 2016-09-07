@@ -11,7 +11,7 @@ feature "Liking" do
     post = create(:post, user: user)
 
     sign_in(user)
-    expect{click_link "Like"}.to change(Like, :count).by(1)
+    expect{click_link "Like"}.to change(post.likes, :count).by(1)
 
 
   end
@@ -21,7 +21,7 @@ feature "Liking" do
   # scenario "a signed in user can like a comment" do
   #   comment = create(:comment, user: user)
     
-  #   click_link "Like"
+  #   expect{click_link "Like"}.to change(comment.likes, :count).by(1)
   #   #how to select the second like link since two on page
   # end
 
