@@ -7,13 +7,13 @@
 
           <!--details-->
           <aside class ="col-md-4" id="details">
-            <%= render partial: 'timeline_about', locals: {
+            <%= render partial: 'posts/timeline_about', locals: {
               :user => @user } %>
             
 
-            <%= render partial: 'timeline_photos' %>
+            <%= render partial: 'posts/timeline_photos' %>
             
-            <%= render 'friends' %>
+            <%= render 'posts/friends' %>
 
           </aside>
 
@@ -23,7 +23,7 @@
   
               
 
-              <%= render partial: 'posts', locals: { :post => @post, :posts => @posts } %>
+              <%= render partial: 'posts/posts', locals: { :post => @post, :posts => @posts } %>
   
             </div><!-- end post feed !-->
             

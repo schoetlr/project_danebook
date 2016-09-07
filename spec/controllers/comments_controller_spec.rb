@@ -9,7 +9,8 @@ describe CommentsController do
     post = comment.post
 
     it "properly creates a comment" do 
-      expect{post :create, post_id: post.id, comment: attributes_for(:comment)}.to change(Comment, :count).by(1)
+      Rails.logger.debug attributes_for(:comment).inspect
+      expect{post :create, {post_id: post.id, comment: attributes_for(:comment) }}.to change(Comment, :count).by(1)
     end
 
   end
