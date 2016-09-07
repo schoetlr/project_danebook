@@ -17,9 +17,10 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    user = @comment.user
     if @comment.destroy
       flash[:success] = "Comment destroyed"
-      redirect_to :back
+      redirect_to user_posts_path(user)
     else
       flash[:error] = "Comment could not be destroyed"
       redirect_to :back

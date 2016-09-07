@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:error] = "Something went wrong"
-      redirect_to :back
+      redirect_to root_path
     end
 
   end

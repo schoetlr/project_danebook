@@ -8,9 +8,14 @@ Rails.application.routes.draw do
   resource :session
   resources :users, shallow: true do 
     resources :posts do 
-      resources :likes, :defaults => { :commentable => "Post" }
+      resources :likes,
+                 only: [:create, :destroy],
+                :defaults => { :commentable => "Post" }
+      
       resources :comments do 
-        resources :likes, :default => { :commentable => "Comment" }
+        resources :likes, 
+                  only: [:create, :destroy],
+                  :default => { :commentable => "Comment" }
       end
 
     end
