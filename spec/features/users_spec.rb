@@ -30,13 +30,24 @@ feature "User accounts" do
     expect(page).to have_content "Signed in successfully"
   end
 
-  scenario "a user that is not signed in can not view anything besides the homepage" do 
+  describe "Secure pages can't be visited by not signed in users" do 
+    #covers most sad paths because unsigned users can't visit
+    #any pages besides root_path
+    scenario "can not view timelines" do 
 
-    visit user_posts_path(1)
+      visit user_posts_path(1)
 
-    expect(page).to have_content "Not signed in"
+      expect(page).to have_content "Not signed in"
 
 
+    end
+
+    scenario "can not not view about pages" do
+      visit user_path(user)
+
+      expect(page).to have_content "Need to be logged in"
+
+    end
   end
 
 

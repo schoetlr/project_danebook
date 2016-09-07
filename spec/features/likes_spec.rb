@@ -19,7 +19,8 @@ feature "Liking" do
 
 
   # scenario "a signed in user can like a comment" do
-  #   comment = create(:comment, user: user)
+  #    post = create(:post, user: user)
+  #   comment = create(:comment, user: user, post: post)
     
   #   expect{click_link "Like"}.to change(comment.likes, :count).by(1)
   #   #how to select the second like link since two on page
