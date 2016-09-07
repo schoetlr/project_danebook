@@ -8,10 +8,10 @@ FactoryGirl.define do
     current_location Faker::Address.city
     about "This is an about me"
     words_to_live_by "These are words to live by"
-    first_name {Faker::Name.name}
-    last_name {Faker::Name.name}
-    gender ["male", "female"].sample
-    user
+    first_name Faker::Name.name
+    last_name Faker::Name.name
+    gender "male"
+    
 
 
   end

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         sign_in(@user)
       end
       flash[:success] = "Signed in successfully"
-      redirect_to user_path(@user)
+      redirect_to user_posts_path(@user)
     else
       flash[:error] = "You couldn't be signed in"
       redirect_to :back
