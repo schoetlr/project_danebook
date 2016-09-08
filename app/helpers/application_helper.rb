@@ -9,7 +9,9 @@ module ApplicationHelper
   end
 
   def friending_link(user)
-    if current_page?("users/#{user.id}/posts") || current_page?(controller: "users", action: "show")
+    
+    if current_page?("/users/#{user.id}/posts") || current_page?("/users/#{user.id}")
+
       if user.id == current_user.id
         return
       elsif current_user.friends_with?(user)

@@ -257,17 +257,17 @@ Sometimes need deep specificity to override Bootstrap*/
 
 }
 
-
+.friend-list-entry .row {
+  margin: 15px;
+  padding: 15px;
+  border: 1px solid black;
+}
 
 #friends-list {
   .friend-list-entry {
     height: 150px;
     padding-top: 25px;
-    .row {
-      margin: 15px;
-      padding: 15px;
-      border: 1px solid black;
-    }
+    
     .col-md-5 {
       padding-top: 20px;
     }
@@ -275,6 +275,10 @@ Sometimes need deep specificity to override Bootstrap*/
       padding-top: 30px;
     }
   }
+}
+
+.btn-unfriend {
+  background-color: lightgray;
 }
 
 

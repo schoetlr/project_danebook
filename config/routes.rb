@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :friendings, only: [:create, :destroy]
 
   resources :users, shallow: true do
-
+    get 'friends'
     resources :posts do 
       resources :likes,
                  only: [:create, :destroy],

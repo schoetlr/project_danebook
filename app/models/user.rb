@@ -32,6 +32,15 @@ class User < ActiveRecord::Base
                                source: :friend_initiator
   
 
+
+  def friend_count
+    friends.count
+  end
+
+  def friends
+    friended_users
+  end
+
   def friends_with?(user)
     #for now only true when a user has initiated a friending
     friended_users.pluck(:id).include?(user.id)

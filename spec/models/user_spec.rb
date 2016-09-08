@@ -38,6 +38,28 @@ describe User do
     expect{user.likes}.to_not raise_error
   end
 
+  context "A User can friend many other users" do 
+
+    it "has many friended_users" do 
+      expect{user.friended_users}.to_not raise_error
+    end
+
+    it "has many initiated_friendings" do 
+
+      expect{user.initiated_friendings}.to_not raise_error
+    end
+
+    it "has many received_friendings" do 
+      expect{user.received_friendings}.to_not raise_error
+    end
+
+    it "has many users_friended_by" do 
+      expect{user.users_friended_by}.to_not raise_error
+    end
+
+
+  end
+
 
 
 

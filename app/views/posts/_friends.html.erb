@@ -1,0 +1,18 @@
+<section class = "row" id = "timeline-friends">
+  <header class="col-md-12">
+      <h4>Friends: <%= @user.friend_count %> (copy text area)</h4>
+  </header>
+  <% @user.friends.each do |friend| %>
+    <div class="col-md-4 friend">
+      <a class = "photo-link" href="<%= user_path(friend) %>">
+        <%= image_tag "user_silhouette_generic.gif" %>
+      </a>
+      <p><a href="<%= user_path(friend) %>"><%= friend.profile.first_name %><br> <%= friend.profile.last_name %></a></p>
+    </div>
+  <% end %>
+  
+
+  <div class="col-md-12">
+    <a href="friends.html">See more friends</a>
+  </div>
+</section>

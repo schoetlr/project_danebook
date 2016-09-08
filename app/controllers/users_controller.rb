@@ -7,8 +7,9 @@ class UsersController < ApplicationController
     @user.build_profile
   end
 
-  def index
-    @users = User.all
+  def friends
+    @page_owner = User.find(params[:user_id])
+    @friends = @page_owner.friended_users
   end
 
   def show
