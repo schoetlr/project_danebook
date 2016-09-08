@@ -16,6 +16,7 @@ Rails.application.routes.draw do
         resources :likes, 
                   only: [:create, :destroy],
                   :default => { :commentable => "Comment" }
+      #should it be likeable
       end
 
     end
