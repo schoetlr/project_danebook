@@ -12,8 +12,12 @@ class UsersController < ApplicationController
     @friends = @page_owner.friended_users
   end
 
-  def show
+  def index
+    @users = User.search_name(params[:search])
+  end
 
+  def show
+    
   end
 
   def edit

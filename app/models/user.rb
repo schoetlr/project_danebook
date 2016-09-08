@@ -31,7 +31,13 @@ class User < ActiveRecord::Base
   has_many :users_friended_by, through: :received_friendings,
                                source: :friend_initiator
   
+  
+  def self.search_name(name)
+    first_name_search(name).to_a
+    .concat(self.last_name_search(name).to_a)
+    .uniq
 
+  end
 
   def friend_count
     friends.count
@@ -62,5 +68,19 @@ class User < ActiveRecord::Base
 
     generate_token
     save!
+  end
+
+  private
+
+  def self.first_name_search(name)
+    User.select("*")
+        .joins("JOIN profiles ON profiles.user_id=users.id")
+        .where("first_name LIKE ?", "%#{name}%")
+  end
+
+  def self.last_name_search(name)
+    User.select("*")
+        .joins("JOIN profiles ON profiles.user_id=users.id")
+        .where("last_name LIKE ?", "%#{name}%")
   end
 end
