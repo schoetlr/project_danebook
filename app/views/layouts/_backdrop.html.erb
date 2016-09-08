@@ -1,40 +1,4 @@
-<nav id="top-navbar" class="navbar navbar-default navbar-static" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <a class="navbar-brand" href="/">
-            <%= image_tag( 'danish_flag.gif', 
-                class: "img-responsive img-circle", 
-                alt: "Denmark 4eva",
-                height: 28,
-                width: 36) %>
-          </a>
-          <a class="navbar-brand" href="/">
-            Danebook
-          </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" id="nav-search-bar" class="form-control" placeholder="Search">
-                </div>
-              </form>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li class="hidden-sm pull-right"><%= link_to user.profile.first_name, user_path(user.id), id: "navbar-username" %></li>
-          </ul>
-        </div><!-- /.navbar-collapse-->
-      </div><!-- /.container-fluid -->
-    </nav>
+<%= render 'layouts/navbar' %>
 
     <main>
     <header class = "container" id="cover">
@@ -60,13 +24,17 @@
         <div id = "profile-nav" class = "row">
           <div class="col-md-7 col-md-offset-3">
             <ul class="nav nav-tabs" role = "profile-nav">
-              <li class="<%= current(user_posts_path(@user)) %>"><%= link_to "Timeline", user_posts_path(@user) %></li>
+              <li class="<%= current(user_posts_path(user)) %>"><%= link_to "Timeline", user_posts_path(user) %></li>
               <li class="<%= current(user_path(user.id)) %>"><%= link_to "About", user_path(user.id) %>
               </li>
               <li class="<%= current(photos_path) %>"><a href="photos.html">Photos <span class="link-count hidden-xs">(123)</span></a></li>
-              <li class="<%= current(friends_path) %>"><a href="friends.html">
-              Friends <span class="link-count hidden-xs">(542)</span></a></li>
-
+              <li class="<%= current(user_friends_path(user.id)) %>">
+                <%= link_to user_friends_path(user.id) do %>
+                  Friends
+                  <span class="link-count hidden-xs"><%= "(#{user.friended_users.count})" %></span>
+                <% end %>
+              </li>
+              <%= friending_link(user) %>
           </div>
         </div>
       </header>

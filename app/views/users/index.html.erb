@@ -1,2 +1,37 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<%= render 'layouts/navbar' %>       
+<div id="search-results">
+  <div class="row">
+    <div id="search-title" class="row">
+      <div class="col-xs-12">
+        <h1>Search Results</h1>
+      </div>
+    </div>
+    <% @users.each do |user| %>
+      <div class="col-md-12 searched-user">
+        <div class="row">
+          <div class="col-md-3 col-xs-6">
+            <a href="#">
+              <%= image_tag "user_silhouette_generic.gif", height: "100px", width: "100px" %>
+            </a>
+          </div>
+          <div class="col-md-5 col-xs-6">
+            <p><a href="#"><%= user.name %></a></p>
+            <p><%= user.friended_users.count %> Friends</p>
+            <p>Currently Lives in <%= user.profile.current_location %></p>
+            <p>From <%= user.profile.hometown %></p>
+            <p>Born on <%= user.profile.birthday %></p> 
+
+          </div>
+          <form class="col-md-4 col-xs-12">
+            <div class="form-group">
+
+              <%= link_to "Unfriend Me", friending_path(user), method: "delete", class: "btn btn-default btn-unfriend", type: "submit" %>
+
+            </div>
+          </form>
+        </div>
+      </div><!--searched-user entry-->
+    <% end %>  
+    </div>
+  </div>
+</div>

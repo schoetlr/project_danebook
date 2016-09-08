@@ -7,12 +7,17 @@ class UsersController < ApplicationController
     @user.build_profile
   end
 
+  def friends
+    @page_owner = User.find(params[:user_id])
+    @friends = @page_owner.friended_users
+  end
+
   def index
-    @users = User.all
+    @users = User.search_name(params[:search])
   end
 
   def show
-
+    
   end
 
   def edit
