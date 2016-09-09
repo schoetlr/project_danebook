@@ -2,8 +2,8 @@ class CommentsController < ApplicationController
   before_action :require_login, only: [:create, :destroy]
 
   def create
-    post = Post.find(params[:post_id])
-    @comment = post.comments.build(whitelisted_params)
+    @commentable = extract_commentable
+    @comment = @commentable.comments.build(whitelisted_params)
     @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = "Comment created"
@@ -30,7 +30,13 @@ class CommentsController < ApplicationController
 
   private
 
+  def extract_commentable
+    resource, id = request.path.split('/')[1,2]
+
+    resource.singularize.classify.constantize.find(id)
+  end
+
   def whitelisted_params
-    params.require(:comment).permit(:post_id, :content)
+    params.require(:comment).permit(:content)
   end
 end
