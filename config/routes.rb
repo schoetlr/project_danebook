@@ -20,10 +20,17 @@ Rails.application.routes.draw do
   resources :users, shallow: true do
     get 'friends'
 
-    resources :photos do 
+    resources :photos do
+      resources :likes,
+                only: [:create, :destroy],
+                default: { likeable: "Photo" } 
       resources :comments,
                 only: [:create, :destroy], 
-                default: { commentable: "Photo" }
+                default: { commentable: "Photo" } do 
+
+        resources :likes, only: [:create, :destroy]
+                          default: { likeable: "Comment" }
+      end
     end
 
     resources :posts do 

@@ -26,13 +26,36 @@
     </div>
 
     <div id="comment-form">
-
-
+      <%= form_tag photo_comments_path(@photo) do %>
+        <%= text_area_tag "comment[content]", placeholder: "Write a comment" %>
+        <%= submit_tag "create comment" %>
+      <% end %>
     </div>
 
     <div id="photo-comments">
+      <% @photo.comments.each do |comment| %>
+        <div class="photo-comment">
+          <div class="photo-comment-owner row">
+            <div class="col-xs-3">
+              <!-- profile photo here -->
+            </div>
 
+            <div class="col-xs-9">
+              <%= link_to comment.user.name, user_path(comment.user) %>
+              <p>Said on <%= comment.created_at.strftime("%B %d, %Y") %></p>
+            </div>
+          </div><!-- end comment owner -->
 
+          <div class="row">
+            <p><%= comment.content %></p>
+          </div>
+
+          <div class="row photo-comment-like-info">
+
+          </div>
+
+        </div>
+      <% end %>
     </div>
 
 
