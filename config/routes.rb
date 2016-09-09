@@ -7,9 +7,14 @@ Rails.application.routes.draw do
   resource :session
 
   resources :friendings, only: [:create, :destroy]
+  
+  resources :photos, only: [:destroy]
 
   resources :users, shallow: true do
     get 'friends'
+
+    post 'set_profile_photo' => 'profiles#set_profile_photo'
+    post 'set_cover_photo' => 'profiles#set_cover_photo'
 
     resources :photos do
       resources :likes,
