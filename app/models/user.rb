@@ -48,9 +48,15 @@ class User < ActiveRecord::Base
     friended_users
   end
 
-  def friends_with?(user)
+  def friends_with?(user_id)
+    if user_id.is_a?(User)
+      user_id = user_id.id
+    else
+      user_id = user_id.to_i
+    end
     #for now only true when a user has initiated a friending
-    friended_users.pluck(:id).include?(user.id)
+    friended_users.pluck(:id).include?(user_id)
+
   end
 
   def name

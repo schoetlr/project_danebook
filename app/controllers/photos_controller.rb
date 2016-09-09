@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
-  #before_action :friends_with_target, only: [:show]
-  before_action :be_your_self, only: [:show]
+  before_action :friends_with_target, only: [:show]
+  before_action :be_your_self, only: [:create]
 
   #make sure you can only create photos for yourself
   def new
@@ -41,18 +41,21 @@ class PhotosController < ApplicationController
   end
 
   def friends_with_target
-    #need access to the @user
+    
     #put this in a model
-    unless current_user.friends.pluck(:id).include?(@user.id)
+    target_user = Photo.find(params[:id]).user
+    user_id = target_user.id
+    
+    unless current_user.friends_with?(user_id)
       flash[:error] = "You are not friends with that user"
-      redirect_to user_posts_path(@user)
+      redirect_to user_posts_path(user_id)
     end
   end
 
   def be_your_self
     unless current_user.id == params[:user_id].to_i
       flash[:error] = "You can't make photos for other people"
-      redirect_to :back
+      redirect_to user_path(current_user)
     end
   end
 
