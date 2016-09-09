@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
   
-  
-
-  get 'photos/new'
-
-  get 'photos/index'
-
-  get 'photos/show'
-
-  get 'photos/edit'
 
   get 'logout' => 'sessions#destroy', as: :logout
   get 'login' => 'sessions#new', as: :login
