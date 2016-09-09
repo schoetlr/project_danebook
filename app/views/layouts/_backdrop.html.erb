@@ -27,7 +27,7 @@
               <li class="<%= current(user_posts_path(user)) %>"><%= link_to "Timeline", user_posts_path(user) %></li>
               <li class="<%= current(user_path(user.id)) %>"><%= link_to "About", user_path(user.id) %>
               </li>
-              <li class="<%= current(photos_path) %>"><a href="<%= photos_path %>">Photos <span class="link-count hidden-xs">(123)</span></a></li>
+              <li class="<%= current(user_photos_path(user)) %>"><a href="<%= photos_path %>">Photos <span class="link-count hidden-xs">(<%= user.photos.count %>)</span></a></li>
               <li class="<%= current(user_friends_path(user.id)) %>">
                 <%= link_to user_friends_path(user.id) do %>
                   Friends
