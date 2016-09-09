@@ -28,7 +28,7 @@ Rails.application.routes.draw do
                 only: [:create, :destroy], 
                 default: { commentable: "Photo" } do 
 
-        resources :likes, only: [:create, :destroy]
+        resources :likes, only: [:create, :destroy],
                           default: { likeable: "Comment" }
       end
     end

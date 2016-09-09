@@ -27,7 +27,7 @@
 
     <div id="comment-form">
       <%= form_tag photo_comments_path(@photo) do %>
-        <%= text_area_tag "comment[content]", placeholder: "Write a comment" %>
+        <%= text_area_tag "comment[content]", nil, placeholder: "Write a comment" %>
         <%= submit_tag "create comment" %>
       <% end %>
     </div>
