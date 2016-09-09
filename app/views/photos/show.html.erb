@@ -1,2 +1,41 @@
-<h1>Photos#show</h1>
-<p>Find me in app/views/photos/show.html.erb</p>
+<div class="row">
+
+  <div class="col-md-8 photo-show-section">
+    <div class="row">
+      <div class="col-md-12">
+        <%= image_tag @photo.image.url, width: "600px" %>
+      </div>
+    </div>
+    <% if @photo.user.id == current_user.id %>
+      <div class="row">
+        <div class="col-md-2 pull-right">
+          <%= link_to "Set as Profile", "#" %>
+          <%= link_to "Set as Cover", "#" %>
+          <%= link_to "Delete Photo", "#" %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+
+  <div class="col-md-4 photo-show-section">
+    <div id="user-info">
+
+
+    </div>
+
+    <div id="comment-form">
+
+
+    </div>
+
+    <div id="photo-comments">
+
+
+    </div>
+
+
+  </div>
+
+</div>
