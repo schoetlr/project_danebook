@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :likes
+  has_many :photos
 
   has_many :initiated_friendings, foreign_key: :friender_id,
                                   class_name: "Friending"

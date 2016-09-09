@@ -1,0 +1,45 @@
+<div id="new-photo-wrapper">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <p class="photo-option">Pase the URL to a photo on the web</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= form_tag "#" do %>
+        <%= text_area_tag :url %>
+        <div class="row">
+          <%= submit_tag "Use Web Photo", class: "btn btn-primary", id: "web-btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 id="or">or...</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <p class="photo-option">Select a photo from your hard drive...</p>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= form_tag user_photos_path(@user), multipart: true do %>
+      <div class="row">
+        <div class="col-xs-4"></div>
+        <%= file_field_tag "photo[image]" %>
+      </div>
+        <%= submit_tag "Upload Photo", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

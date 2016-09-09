@@ -1,0 +1,169 @@
+<%= render partial: 'layouts/backdrop', locals: { :user => @user } %>
+
+<!-- This part changes page by page -->
+      <section class="container" id="information-pane">
+        <header class="row">
+          <div class="col-md-offset-2 col-md-8 about-header">
+            <h2>Photos</h2>
+          </div>
+          <form class="col-md-2 about-header">
+            <div class="form-group">
+              
+              <%= link_to "Add photo!", new_user_photo_path(@user), class: "btn btn-default", id: "edit-profile-button" %>
+            </div>
+          </form>
+        </header>
+
+
+        <div class="row" id="photo-field">
+          <% @photos.each do |photo| %>
+            <div class="col-md-3 photo">
+              <%= link_to photo_path(photo), class: "img-responsive photo-link" do %>
+                <%= image_tag photo.image.url(:thumb) %>
+              <% end %>
+              <div class="photo-upload-date">
+                <p>Uploaded <%= photo.created_at.strftime("%B #{photo.created_at.day.ordinalize}, %Y") %></p>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 photo">
+            <a class = "img-responsive photo-link" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class = "photo-upload-date">
+              <p>Uploaded January 1, 2015</p>
+            </div>
+          </div>
+
+
+        </div> <!-- photo-field -->
+      </section> <!--information-pane -->
+
+    </main>

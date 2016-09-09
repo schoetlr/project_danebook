@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   
   
 
+  get 'photos/new'
+
+  get 'photos/index'
+
+  get 'photos/show'
+
+  get 'photos/edit'
+
   get 'logout' => 'sessions#destroy', as: :logout
   get 'login' => 'sessions#new', as: :login
 
@@ -11,16 +19,19 @@ Rails.application.routes.draw do
 
   resources :users, shallow: true do
     get 'friends'
+
+    resources :photos
+
     resources :posts do 
       resources :likes,
                  only: [:create, :destroy],
-                :defaults => { :commentable => "Post" }
+                :defaults => { :likeable => "Post" }
       
       resources :comments do 
         resources :likes, 
                   only: [:create, :destroy],
-                  :default => { :commentable => "Comment" }
-      #should it be likeable
+                  :default => { :likeable => "Comment" }
+      #Most likely should be likeable not commentable
       end
 
     end
