@@ -5,19 +5,44 @@
 
       <!--cover images-->
       <div class = "row">
-        <%= image_tag "hogwarts_small.jpg", 
-                       class: "cover-photo hidden-sm hidden-xs",
-                       width: "100%",
-                       height: "350px"
+        <% if user.cover_photo %>
+          <%= image_tag user.cover_photo.image.url, 
+                         class: "cover-photo hidden-sm hidden-xs",
+                         width: "100%",
+                         height: "350px"
 
-         %> 
-        <div class="col-md-12 hidden-xs hidden-sm profile-image">
+           %> 
+        <% else %>
         
-          <%= image_tag "harry_potter_small.jpg", 
-                        height: "200px",
-                        width: "180px"
-           %>
-        </div>
+          <%= image_tag "hogwarts_small.jpg", 
+                         class: "cover-photo hidden-sm hidden-xs",
+                         width: "100%",
+                         height: "350px"
+
+           %> 
+
+        <% end %>
+
+        <% if user.profile_photo %>
+          <div class="col-md-12 hidden-xs hidden-sm profile-image">
+          
+            <%= image_tag user.profile_photo.image.url(:thumb), 
+                          height: "200px",
+                          width: "180px"
+             %>
+          </div>
+
+        <% else %>
+
+          <div class="col-md-12 hidden-xs hidden-sm profile-image">
+          
+            <%= image_tag "harry_potter_small.jpg", 
+                          height: "200px",
+                          width: "180px"
+             %>
+          </div>
+
+        <% end %>
       </div>
 
         <!--secondary navbar-->
