@@ -11,23 +11,7 @@ module PostsHelper
     str.html_safe
   end
 
-  def who_liked_display(post)
-    if post.likes.any?
-      likes = post.likes
-      first = likes.first
-      first_user = first.user
-      remainder = likes.count - 1
-      
-      if current_user.id == first_user.id
-        str = "You and #{pluralize(remainder, "other")} likes this."
-      elsif current_user && likes.map { |like| like.user }.include?(current_user)
-        str = "You and #{link_to first_user.name, user_path(first_user)}" + " and #{pluralize(remainder, "other")} likes this."
-      else
-        str = "#{link_to first_user.name, user_path(first_user)}" + " and #{pluralize(remainder, "other")} likes this."
-      end
-      str.html_safe
-    end
-  end
+  
 
   def display_delete_link(post)
     if require_current_user

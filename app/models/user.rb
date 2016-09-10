@@ -40,6 +40,24 @@ class User < ActiveRecord::Base
 
   end
 
+  def cover_photo
+    photo_id = self.profile.cover_photo_id
+    Photo.find(photo_id)
+  end
+
+  def profile_photo
+    photo_id = self.profile.profile_photo_id
+    Photo.find(photo_id)
+  end
+
+  def has_profile_photo?
+    !!self.profile.profile_photo_id
+  end
+
+  def has_cover_photo?
+    !!self.profile.cover_photo_id
+  end
+
   def friend_count
     friends.count
   end

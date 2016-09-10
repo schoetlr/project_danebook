@@ -25,4 +25,23 @@ module ApplicationHelper
   end
 
 
+  def like_display(likeable)
+    if likeable.likes.any?
+      likes = likeable.likes
+      first = likes.first
+      first_user = first.user
+      remainder = likes.count - 1
+      
+      if current_user.id == first_user.id
+        str = "You and #{pluralize(remainder, "other")} likes this."
+      elsif current_user && likes.map { |like| like.user }.include?(current_user)
+        str = "You and #{link_to first_user.name, user_path(first_user)}" + " and #{pluralize(remainder, "other")} likes this."
+      else
+        str = "#{link_to first_user.name, user_path(first_user)}" + " and #{pluralize(remainder, "other")} likes this."
+      end
+      str.html_safe
+    end
+  end
+
+
 end

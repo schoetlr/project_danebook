@@ -32,3 +32,39 @@
 .photo-show-section {
   margin-top: 50px;
 }
+
+
+.photo-show {
+
+  #photo-links { 
+    margin-top: 20px;
+    margin-right: 120px;
+  }
+  
+  #header {
+    margin-bottom: 50px;
+  }
+  #like {
+    margin-top: 20px;
+  }
+
+  #photo-comments {
+    margin-top: 40px;
+    padding: 20px;
+    border: solid 1px black;
+    background-color: lightgray;
+  }
+
+  .photo-comment {
+    margin-bottom: 20px;
+  }
+
+  .comment-content p {
+    margin-left: 100px;
+    margin-top: 15px;
+  }
+
+  #comment-btn {
+    margin-right: 70px;
+  }
+}

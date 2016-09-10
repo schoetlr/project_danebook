@@ -12,23 +12,6 @@ module CommentsHelper
     str.html_safe
   end
 
-  def who_liked_display_comment(comment)
-    if comment.likes.any?
-      likes = comment.likes
-      first = likes.first
-      first_user = first.user
-      remainder = likes.count - 1
-      
-      if current_user.id == first_user.id
-        str = "   You and #{remainder} others likes this."
-      elsif current_user && likes.map { |like| like.user }.include?(current_user)
-        str = "You and #{link_to first_user.name, user_path(first_user)}" + " and #{remainder} others likes this."
-      else
-        str = "#{link_to first_user.name, user_path(first_user)}" + " and #{remainder} others likes this."
-      end
-      str.html_safe
-    end
-  end
 
   def display_delete_link_comment(comment)
     if require_current_user

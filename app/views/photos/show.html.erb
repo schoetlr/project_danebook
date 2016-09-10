@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row photo-show">
 
   <div class="col-md-8 photo-show-section">
     <div class="row">
@@ -8,7 +8,7 @@
     </div>
     <% if @photo.user.id == current_user.id %>
       <div class="row">
-        <div class="col-md-2 pull-right">
+        <div class="col-md-2 pull-right" id="photo-links">
           <%= link_to "Set as Profile", user_set_profile_photo_path(current_user.id, photo_id: @photo.id), method: :post  %>
           <%= link_to "Set as Cover", user_set_cover_photo_path(current_user.id, photo_id: @photo.id), method: :post %>
           <%= link_to "Delete Photo", photo_path(@photo.id), method: :delete %>
@@ -20,33 +20,73 @@
 
 
   <div class="col-md-4 photo-show-section">
-    <div id="user-info">
+    <div id="header">
+      <div id="user-info" class="row">
+        <div class="profile-photo col-xs-2">
+          <%= link_to user_path(@user) do %>
+            <%= image_tag(@user.profile_photo.image.url(:thumb), height: "60px", width: "60px") if @user.has_profile_photo? %>
+          <% end %>
+        </div>
+        <div class="col-xs-10">
+          <div class="row">
+            <div class="name col-xs-12">
+              <%= link_to @user.name, user_path(@user) %>
+            </div>
 
+            <div class="photo-created-at col-xs-12">
+              <%= @photo.date %>
+            </div>
+          </div>
+        </div>
 
+        
+
+      </div><!-- end user-info -->
+
+      <div id="like" class="row">
+        <div class="col-xs-3">
+          <%= like_link_display_photo(@photo) %>
+        </div>
+
+        <div id="like-display" class="col-xs-9">
+          <p><%= like_display(@photo) %></p>
+        </div>
+
+      </div>
     </div>
 
-    <div id="comment-form">
-      <%= form_tag photo_comments_path(@photo) do %>
-        <%= text_area_tag "comment[content]", nil, placeholder: "Write a comment" %>
-        <%= submit_tag "create comment" %>
-      <% end %>
+    
+
+    <div id="comment-form" class="row">
+      <div class="col-xs-12">
+        <%= form_tag photo_comments_path(@photo) do %>
+          <div class="row">
+            <%= text_area_tag "comment[content]", nil, placeholder: "Write a comment", size: "50x5" %>
+          </div>
+
+          <div class="row">
+            <%= submit_tag "create comment", class: "btn btn-primary pull-right", id: "comment-btn" %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <div id="photo-comments">
       <% @photo.comments.each do |comment| %>
+        <% owner = comment.user %>
         <div class="photo-comment">
           <div class="photo-comment-owner row">
             <div class="col-xs-3">
-              <!-- profile photo here -->
+              <%= image_tag owner.profile_photo.image.url(:thumb), height: "60px", width: "60px" %>
             </div>
 
             <div class="col-xs-9">
               <%= link_to comment.user.name, user_path(comment.user) %>
-              <p>Said on <%= comment.created_at.strftime("%B %d, %Y") %></p>
+              <p>Said on <%= comment.date %></p>
             </div>
           </div><!-- end comment owner -->
 
-          <div class="row">
+          <div class="row comment-content">
             <p><%= comment.content %></p>
           </div>
 

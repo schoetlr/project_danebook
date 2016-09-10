@@ -1,4 +1,5 @@
 class Photo < ActiveRecord::Base
+  include DateWriter
 
   belongs_to :user
   has_many :comments, as: :commentable
@@ -7,4 +8,9 @@ class Photo < ActiveRecord::Base
   
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+
+  def liked_by_user?(user)
+    self.likes.map { |like| like.user_id }.include?(user.id)
+  end
+  
 end

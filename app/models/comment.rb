@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
-  
+  include DateWriter
+
   belongs_to :commentable, polymorphic: true
   belongs_to :post #will need to be polymorphic when photos added
   belongs_to :user
