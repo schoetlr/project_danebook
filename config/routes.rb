@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get 'newsfeed/newsfeed'
+
   get 'logout' => 'sessions#destroy', as: :logout
   get 'login' => 'sessions#new', as: :login
 
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, shallow: true do
     get 'friends'
+    get 'newsfeed' => 'newsfeed#newsfeed'
 
     post 'set_profile_photo' => 'profiles#set_profile_photo'
     post 'set_cover_photo' => 'profiles#set_cover_photo'

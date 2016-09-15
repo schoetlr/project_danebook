@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
 
 
   def require_current_user
-    unless params[:user_id] == current_user.id
+    unless params[:user_id].to_i == current_user.id
       flash[:error] = "Not signed in"
       redirect_to :back
     end

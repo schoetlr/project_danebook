@@ -1,0 +1,10 @@
+  <% comment = post.comments.build %>
+  <%= form_for [post, comment], :url => post_comments_path(post), html: {class: "col-md-12", method: "POST"} do |comment_fields| %>
+    <div class="form-group">
+      <%= comment_fields.text_area :content, placeholder: "Write a comment...", class: "form-control", rows: "2" %>
+    </div>
+    <div class="form-group">
+      <a class="col-md-1" href="#">Cancel</a>
+      <%= comment_fields.submit "Comment", class: "col-md-3 pull-right btn btn-primary" %>
+    </div>
+  <% end %>

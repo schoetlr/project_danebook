@@ -14,7 +14,7 @@ module PostsHelper
   
 
   def display_delete_link(post)
-    if require_current_user
+    if is_current_user?(post.user)
       str = link_to("Delete", post_path(post), method: "delete", class: "col-md-1 pull-right")
 
       str.html_safe

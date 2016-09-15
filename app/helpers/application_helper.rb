@@ -1,8 +1,10 @@
 module ApplicationHelper
 
-  def require_current_user
-    @user.id == current_user.id
+  def is_current_user?(user)
+    user.id == current_user.id
   end
+
+  #check if the above is needed and ifso change the name
   
   def current(path)
     "active" if current_page?(path)

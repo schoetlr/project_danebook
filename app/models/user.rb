@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
 
   def profile_photo
     photo_id = self.profile.profile_photo_id
-    Photo.find(photo_id)
+    Photo.find(photo_id) if photo_id
   end
 
   def has_profile_photo?
