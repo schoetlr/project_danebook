@@ -1,0 +1,27 @@
+console.log("COMMENT CREATING W AJAX successful");
+
+
+if( $(".newsfeed-post-form").length > 0 ){
+  
+  var comment = "<%= j(render partial: "newsfeed/comment", locals: {comment: @comment}) %>"
+
+  var $comment = $(comment);
+  
+
+  
+  //$post.prependTo("#newsfeed-posts").hide().slideDown();
+  //$("textarea#post_content").val("");
+}
+
+
+
+
+if( $("#post-feed").length > 0 ){
+  var comment = "<%= j(render partial: "posts/comment", locals: {comment: @comment}) %>"
+
+  var $comment = $(comment);
+
+  //$("#timeline-posts").prepend($post);
+  //$post.prependTo("#timeline-posts").hide().slideDown();
+  //$("textarea#post_content").val("");
+}
