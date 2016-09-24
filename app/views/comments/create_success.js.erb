@@ -33,7 +33,17 @@ if( $("#post-feed").length > 0 ){
   $("textarea#comment_content").val("");
 
 
-  //$("#timeline-posts").prepend($post);
-  //$post.prependTo("#timeline-posts").hide().slideDown();
-  //$("textarea#post_content").val("");
+}
+
+if( $("#photo-comments").length > 0){
+  
+  var comment = "<%= j(render partial: "photos/comment", locals: {comment: @comment}) %>"
+
+  var $comment = $(comment);
+  
+
+  $comment.appendTo($("#photo-comments")).hide().slideDown();
+  $("textarea#comment_content").val("");
+
+
 }

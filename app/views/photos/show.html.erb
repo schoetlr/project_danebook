@@ -59,7 +59,7 @@
 
     <div id="comment-form" class="row">
       <div class="col-xs-12">
-        <%= form_tag photo_comments_path(@photo) do %>
+        <%= form_tag photo_comments_path(@photo), remote: true do %>
           <div class="row">
             <%= text_area_tag "comment[content]", nil, placeholder: "Write a comment", size: "50x5" %>
           </div>
@@ -73,34 +73,7 @@
 
     <div id="photo-comments">
       <% @photo.comments.each do |comment| %>
-        <% owner = comment.user %>
-        <div class="photo-comment">
-          <div class="photo-comment-owner row">
-            <div class="col-xs-3">
-              <%= image_tag owner.profile_photo.image.url(:thumb), height: "60px", width: "60px" %>
-            </div>
-
-            <div class="col-xs-9">
-              <%= link_to comment.user.name, user_path(comment.user) %>
-              <p>Said on <%= comment.date %></p>
-            </div>
-          </div><!-- end comment owner -->
-
-          <div class="row comment-content">
-            <p><%= comment.content %></p>
-          </div>
-
-          <div class="row photo-comment-like-info">
-            <div class="col-xs-2">  
-              <%= like_link_display_comment(comment) %>
-            </div>
-
-            <div class="col-xs-10">
-              <%= like_display(comment) %>
-            </div>
-          </div>
-
-        </div>
+        <%= render partial: "comment", locals: {comment: comment} %>
       <% end %>
     </div>
 
