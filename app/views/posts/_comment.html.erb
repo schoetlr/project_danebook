@@ -1,9 +1,9 @@
 <article class ="col-md-12 comment">
-  <div class="col-md-3">
-    <%= image_tag(comment.user.profile_photo.image.url(:thumb)) if comment.user.profile_photo %>
+  <div class="col-md-1">
+    <%= image_tag(comment.user.profile_photo.image.url(:thumb), size: "60x60") if comment.user.profile_photo %>
   </div>
 
-  <div class="col-md-9">
+  <div class="col-md-11">
     <p class="col-md-12"><a href="#"><%= comment.user.name if comment.user %></a> Said on <%= comment.created_at %></p>
     <p class = "col-md-12"><%= comment.content %></p>
     <%= like_link_display_comment(comment) %>
