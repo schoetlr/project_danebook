@@ -8,6 +8,7 @@ if( $(".newsfeed-post-form").length > 0 ){
   
 
   $("#newsfeed-posts").prepend($post);
+  $("textarea#post_content").val("");
 }
 
 
@@ -19,4 +20,5 @@ if( $("#post-feed").length > 0 ){
   var $post = $(post);
 
   $("#timeline-posts").prepend($post);
+  $("textarea#post_content").val("");
 }
