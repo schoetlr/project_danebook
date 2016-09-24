@@ -1,9 +1,9 @@
 <article class="row">
   <header class="col-md-12">
-    <div class="col-md-2">
-      <img src="assets/user_silhouette_generic.gif">
+    <div class="col-md-3">
+      <%= image_tag post.user.profile_photo.image.url(:thumb) %>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <p><%= link_to post.user.name, user_path(post.user) %></p>
       <p class="date-posted">Posted on <%= post.created_at.strftime("%m-%d-%Y") %></p>
     </div>
