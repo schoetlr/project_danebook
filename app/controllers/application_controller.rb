@@ -49,6 +49,7 @@ class ApplicationController < ActionController::Base
       redirect_to :back
     end
   end
+  helper_method :require_current_user
 
   
 
