@@ -1,0 +1,11 @@
+console.log("TEMPLATE HAS RENDERED");
+
+if( $(".newsfeed-post-form").length > 0 ){
+  //create post
+  var post = "<%= j(render partial: "newsfeed/newsfeed_post", locals: {post: @post}) %>"
+
+  $post = $(post);
+  //prepend to #newsfeed-posts
+
+  $("#newsfeed-posts").prepend($post);
+}

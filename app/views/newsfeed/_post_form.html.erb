@@ -1,4 +1,4 @@
-<%= form_for [current_user, @post], html: { class: "row", id: "post-form" } do |post_fields| %>
+<%= form_for [current_user, post], remote: true, html: { class: "row newsfeed-post-form", id: "post-form" } do |post_fields| %>
   <div class="col-md-12">
     <h5>Post (copied)</h5>
   </div>

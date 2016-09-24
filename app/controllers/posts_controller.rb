@@ -15,10 +15,23 @@ class PostsController < ApplicationController
     
     if @post.save
       flash[:success] = "Post successfully created"
-      redirect_to user_posts_path(@user.id)
+      respond_to do |format|
+        format.html { redirect_to user_posts_path(@user.id) }
+
+        format.js { render :create_success }
+      end
+
+      
     else
       flash[:error] = "Something went wrong"
-      redirect_to :back
+      
+      respond_to do |format|
+        format.html { redirect_to :back }
+
+        format.js { redirect_to :back }
+
+      end
+      
     end
   end
 

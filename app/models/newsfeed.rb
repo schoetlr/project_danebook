@@ -4,6 +4,7 @@ class Newsfeed
     user = User.find(user_id)
 
     content = []
+    content.concat(user.posts.to_a)
 
     user.friends.each do |friend|
       content.concat(friend.posts.to_a)

@@ -38,14 +38,15 @@
       <%= render partial: "post_form", locals: { :post => @post } %> 
     </div>
 
+    <div id="newsfeed-posts">
+      <% @newsfeed.each do |item| %>
+      <%# because these are posts set post = item, make photo = item if photo %>
+      <%# called item because photos may be added to newsfeed later %>
+        <% post = item %>
+        <%= render partial: "newsfeed_post", locals: {post: post} %>
 
-    <% @newsfeed.each do |item| %>
-    <%# because these are posts set post = item, make photo = item if photo %>
-    <%# called item because photos may be added to newsfeed later %>
-      <% post = item %>
-      <%= render partial: "newsfeed_post", locals: {post: post} %>
-
-    <% end %><!-- end posts loop -->
+      <% end %><!-- end posts loop -->
+    </div>
 
 </div>
 
