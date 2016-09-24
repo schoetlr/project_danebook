@@ -7,7 +7,8 @@ if( $(".newsfeed-post-form").length > 0 ){
   var $post = $(post);
   
 
-  $("#newsfeed-posts").prepend($post);
+  
+  $post.prependTo("#newsfeed-posts").hide().slideDown();
   $("textarea#post_content").val("");
 }
 
@@ -19,6 +20,7 @@ if( $("#post-feed").length > 0 ){
 
   var $post = $(post);
 
-  $("#timeline-posts").prepend($post);
+  //$("#timeline-posts").prepend($post);
+  $post.prependTo("#timeline-posts").hide().slideDown();
   $("textarea#post_content").val("");
 }
