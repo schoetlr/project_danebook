@@ -49,7 +49,15 @@ class ApplicationController < ActionController::Base
       redirect_to :back
     end
   end
-  helper_method :require_current_user
+
+
+  def validate_current_user
+    unless params[:user_id].to_i == current_user.id
+      return false
+    end
+    true
+  end
+  helper_method :validate_current_user
 
   
 

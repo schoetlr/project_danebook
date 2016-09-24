@@ -7,10 +7,21 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = "Comment created"
-      redirect_to :back
+
+      respond_to do |format|
+        format.html{ redirect_to :back }
+
+        format.js { render :create_success }
+      end
+      
     else
       flash[:error] = "Something went wrong"
-      redirect_to :back
+      
+      respond_to do |format|
+        format.html { redirect_to :back }
+
+        format.js { redirect_to :back }
+      end
     end
 
   end

@@ -7,6 +7,11 @@ if( $(".newsfeed-post-form").length > 0 ){
 
   var $comment = $(comment);
   
+  var postId = "<%= @comment.commentable_id %>"
+  
+
+  $comment.appendTo($("#post-" + postId)).hide().slideDown();
+  $("textarea#comment_content").val("");
 
   
   //$post.prependTo("#newsfeed-posts").hide().slideDown();
@@ -20,6 +25,13 @@ if( $("#post-feed").length > 0 ){
   var comment = "<%= j(render partial: "posts/comment", locals: {comment: @comment}) %>"
 
   var $comment = $(comment);
+
+  var postId = "<%= @comment.commentable_id %>"
+  
+
+  $comment.appendTo($("#post-" + postId)).hide().slideDown();
+  $("textarea#comment_content").val("");
+
 
   //$("#timeline-posts").prepend($post);
   //$post.prependTo("#timeline-posts").hide().slideDown();

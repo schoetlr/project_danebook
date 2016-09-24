@@ -14,7 +14,7 @@ module CommentsHelper
 
 
   def display_delete_link_comment(comment)
-    if require_current_user
+    if validate_current_user
       str = link_to("Delete", comment_path(comment), method: "delete", class: "col-md-1 pull-right")
 
       str.html_safe
