@@ -11,7 +11,7 @@
               :user => @user } %>
             
 
-            <%= render partial: 'posts/timeline_photos' %>
+            <%= render partial: 'posts/timeline_photos', locals: {photos: @photos} %>
             
             <%= render 'posts/friends' %>
 

@@ -1,80 +1,21 @@
 <section class = "row" id= "timeline-photos">
   <header class="col-md-12">
-      <h4>Photos (123) (copied text area)</h4>
+      <h4>Photos (<%= @photos.count %>)</h4>
   </header>
 
-  <div class="col-md-4 photo">
-    <a class = "photo-link" href="#">
-      <%= image_tag "user_silhouette_generic.png" %>
-    </a>
-    <div class = "photo-upload-date">
-      <p>Uploaded January 1, 2015</p>
+  <% @photos.each do |photo| %>
+    <div class="col-md-4 photo">
+      <a class = "photo-link" href="#">
+      <%= link_to photo_path(photo), class: "photo-link" do %>
+        <%= image_tag photo.image.url(:thumb) %>
+      <% end %>
+      </a>
+      <div class = "photo-upload-date">
+        <p>Uploaded <%= photo.date %></p>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4 photo">
-    <a class = "photo-link" href="#">
-      <%= image_tag "user_silhouette_generic.png" %>
-    </a>
-    <div class = "photo-upload-date">
-      <p>Uploaded January 1, 2015</p>
-    </div>
-  </div>
-  <div class="col-md-4 photo">
-    <a class = "photo-link" href="#">
-      <%= image_tag "user_silhouette_generic.png" %>
-    </a>
-    <div class = "photo-upload-date">
-      <p>Uploaded January 1, 2015</p>
-    </div>
-  </div>
-  <div class="col-md-4 photo">
-    <a class = "photo-link" href="#">
-      <%= image_tag "user_silhouette_generic.png" %>
-    </a>
-    <div class = "photo-upload-date">
-      <p>Uploaded January 1, 2015</p>
-    </div>
-  </div>
-  <div class="col-md-4 photo">
-    <a class = "photo-link" href="#">
-      <%= image_tag "user_silhouette_generic.png" %>
-    </a>
-    <div class = "photo-upload-date">
-      <p>Uploaded January 1, 2015</p>
-    </div>
-  </div>
-  <div class="col-md-4 photo">
-    <a class = "photo-link" href="#">
-      <%= image_tag "user_silhouette_generic.png" %>
-    </a>
-    <div class = "photo-upload-date">
-      <p>Uploaded January 1, 2015</p>
-    </div>
-  </div>
-  <div class="col-md-4 photo">
-    <a class = "photo-link" href="#">
-      <%= image_tag "user_silhouette_generic.png" %>
-    </a>
-    <div class = "photo-upload-date">
-      <p>Uploaded January 1, 2015</p>
-    </div>
-  </div>
-  <div class="col-md-4 photo">
-    <a class = "photo-link" href="#">
-      <%= image_tag "user_silhouette_generic.png" %>
-    </a>
-    <div class = "photo-upload-date">
-      <p>Uploaded January 1, 2015</p>
-    </div>
-  </div>
-  <div class="col-md-4 photo">
-    <a class = "photo-link" href="#">
-      <%= image_tag "user_silhouette_generic.png" %>
-    </a>
-    <div class = "photo-upload-date">
-      <p>Uploaded January 1, 2015</p>
-    </div>
-  </div>
+  <% end %>
+  
   <div class="col-md-12">
     <a href="photos.html">See more photos!</a>
   </div>
