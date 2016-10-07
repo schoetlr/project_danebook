@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 
 gem 'paperclip'
+gem 'aws-sdk'
+gem 'figaro'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -61,5 +63,7 @@ end
 group :production do 
   gem 'rails_12factor'
   gem 'pg'
+  gem 'rmagick'
+  
 end
 
