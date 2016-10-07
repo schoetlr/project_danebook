@@ -8,8 +8,8 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <%= form_tag "#" do %>
-        <%= text_area_tag :url %>
+      <%= form_tag user_photos_path(@user), multipart: true do %>
+        <%= text_area_tag "photo[image]" %>
         <div class="row">
           <%= submit_tag "Use Web Photo", class: "btn btn-primary", id: "web-btn" %>
         </div>
