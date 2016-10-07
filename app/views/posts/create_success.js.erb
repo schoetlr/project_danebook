@@ -1,9 +1,10 @@
-console.log("TEMPLATE HAS RENDERED");
 
 if( $(".newsfeed-post-form").length > 0 ){
   
+
   var post = "<%= j(render partial: "newsfeed/newsfeed_post", locals: {post: @post}) %>"
 
+  
   var $post = $(post);
   
 

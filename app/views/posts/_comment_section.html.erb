@@ -1,10 +1,14 @@
 <section class="col-md-12 comment-section">
   
+  
+
+
   <div class="post-comments" id="<%= "post-#{post.id}" %>">
-    <% if post.comments.any? %>
+  
+    <% if post.comments.any? { |c| c.persisted? } %>
       <% post.comments.each do |comment| %>
-            <%= render partial: "comment", locals: { :comment => comment } %>
-        <% end %>
+        <%= render partial: "comment", locals: { :comment => comment } %>
+      <% end %>
     <% end %>
   </div>
       

@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     
     if @post.save
       flash[:success] = "Post successfully created"
+      
       respond_to do |format|
         format.html { redirect_to user_posts_path(@user.id) }
 
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
         format.js { redirect_to :back }
 
       end
+
       
     end
   end
