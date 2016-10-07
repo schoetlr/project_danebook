@@ -56,8 +56,20 @@ Sometimes need deep specificity to override Bootstrap*/
   }
 
   #navbar-username {
-      color: #fff;
-      font-size: 18px;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  #navbar-logout {
+    color: #fff;
+    font-size: 18px;
+
+  }
+
+  li.divider {
+    color: #fff;
+    font-size: 18px;
+    margin-top: 12px;
   }
 
   .icon-bar {
