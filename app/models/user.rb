@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
 
   def cover_photo
     photo_id = self.profile.cover_photo_id
-    Photo.find(photo_id)
+    Photo.find(photo_id) if photo_id
   end
 
   def profile_photo
