@@ -18,11 +18,13 @@
         <div class="row" id="photo-field">
           <% @photos.each do |photo| %>
             <div class="col-md-3 photo">
-              <%= link_to photo_path(photo), class: "img-responsive photo-link" do %>
-                <%= image_tag photo.image.url(:thumb) %>
-              <% end %>
-              <div class="photo-upload-date">
-                <p>Uploaded <%= photo.created_at.strftime("%B #{photo.created_at.day.ordinalize}, %Y") %></p>
+              <div>
+                <%= link_to photo_path(photo), class: "photo-link" do %>
+                  <%= image_tag photo.image.url(:thumb), class: "img-responsive center-block" %>
+                <% end %>
+                <div class="photo-upload-date">
+                  <p>Uploaded <%= photo.created_at.strftime("%B #{photo.created_at.day.ordinalize}, %Y") %></p>
+                </div>
               </div>
             </div>
           <% end %>
