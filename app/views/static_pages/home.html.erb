@@ -18,15 +18,15 @@
       <!-- rows and columns control button placement -->  
           
           <%= form_tag session_path, {class: "navbar-form row", role: 'login'} do %>
-          <!-- Yes, kids, even a form-group can be a column -->
-            <div class="col-md-4 col-sm-4 form-group">
+          
+            <div class="col-md-5 col-sm-5 form-group" id="existing-email-wrapper">
               <label for="email">Email</label>
-              <input type="text" name="email" class="form-control" placeholder="Email">
+              <input type="text" id="existing-email" name="email" class="form-control" placeholder="Email">
             </div>
 
-            <div class="col-md-4 col-sm-4 form-group">
+            <div class="col-md-5 col-sm-5 form-group" id="existing-password-wrapper">
               <label for="password">Password</label>
-              <input type="password" name="password" class="form-control" placeholder="Password">
+              <input id="existing-password" type="password" name="password" class="form-control" placeholder="Password">
 
               <%= label_tag do %>
                 Remember me?
@@ -34,10 +34,10 @@
               <% end %>
             </div>
 
-            <div class="col-md-4 col-sm-4 form-group">
-            <!-- empty label to line up submit button -->
-              <label for="submit">&nbsp;</label><br>
-              <!-- unless you really need it, use basic Bootstrap button styles -->
+            <div class="col-md-2 col-sm-2 form-group">
+            
+              <!-- <label for="submit">&nbsp;</label><br> -->
+              
               <%= submit_tag "Login", class: "btn btn-info" %>
             </div>
           <% end %>
