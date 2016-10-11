@@ -5,6 +5,7 @@ require 'rails_helper'
 describe LikesController do 
   let(:user){create(:user)}
   describe "POST #create" do 
+    
     setup do
       @request.env['HTTP_REFERER'] = 'http://test.com/user/#{post.user_id}/posts'
         #post :create, { :user => { :email => 'invalid@abc' } }

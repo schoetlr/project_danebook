@@ -100,12 +100,12 @@ class User < ActiveRecord::Base
   def self.first_name_search(name)
     User.select("*")
         .joins("JOIN profiles ON profiles.user_id=users.id")
-        .where("first_name LIKE ?", "%#{name}%")
+        .where("LOWER(first_name) LIKE LOWER(?)", "%#{name}%")
   end
 
   def self.last_name_search(name)
     User.select("*")
         .joins("JOIN profiles ON profiles.user_id=users.id")
-        .where("last_name LIKE ?", "%#{name}%")
+        .where("LOWER(last_name) LIKE LOWER(?)", "%#{name}%")
   end
 end
