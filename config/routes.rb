@@ -47,12 +47,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-  get 'about' => 'static_pages#about'
-  get 'about_edit'  => 'static_pages#about_edit'
-  get 'friends' => 'static_pages#friends'
-  get 'photos' => 'static_pages#photos'
-  get 'timeline' => 'static_pages#timeline'
   
   root 'static_pages#home'
 
