@@ -9,9 +9,9 @@
           </div>
           <div class="col-md-2 about-header">
             <div class="form-group">
-            <% if current_user.id === @user.id %>
-              <%= link_to "Edit your Profile", edit_user_path(@user), class: "btn btn-default", id: "edit-profile-button" %>
-            <% end %>
+              <% if current_user.id === @user.id %>
+                <%= link_to "Edit your Profile", edit_user_path(@user), class: "btn btn-default", id: "edit-profile-button" %>
+              <% end %>
             </div>
           </div>
         </header>
