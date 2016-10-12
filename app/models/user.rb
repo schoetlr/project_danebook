@@ -78,7 +78,9 @@ class User < ActiveRecord::Base
   end
 
   def name
-    "#{self.profile.first_name} #{self.profile.last_name}"
+    if self.profile
+      "#{self.profile.first_name} #{self.profile.last_name}"
+    end
   end
 
   def generate_token
