@@ -2,7 +2,7 @@
 <div class="photo-comment">
   <div class="photo-comment-owner row">
     <div class="col-xs-3">
-      <%= image_tag owner.profile_photo.image.url(:thumb), height: "60px", width: "60px" %>
+      <%= image_tag(owner.profile_photo.image.url(:thumb), height: "60px", width: "60px") if owner.has_profile_photo? %>
     </div>
 
     <div class="col-xs-9">
