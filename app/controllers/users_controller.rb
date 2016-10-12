@@ -66,7 +66,10 @@ class UsersController < ApplicationController
                                   :words_to_live_by,
                                   :gender,
                                   :first_name,
-                                  :last_name ]
+                                  :last_name,
+                                  :cover_photo_id,
+                                  :profile_photo_id
+                                   ]
                                  }
                                  )
   end
