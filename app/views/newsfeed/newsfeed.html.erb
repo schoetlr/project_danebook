@@ -19,11 +19,15 @@
 
         <div class="row">
           <div class="col-md-3">
-            <%= image_tag(friend.profile_photo.image.url(:thumb)) if friend.profile_photo %>
+            <% if friend.has_profile_photo? %>
+              <%= image_tag friend.profile_photo.image.url(:thumb) %>
+            <% else %>
+              <%= image_tag "user_silhouette_generic.gif", height: "100px", width: "100px" %>
+            <% end %>
           </div>
           <div class="col-md-9">
             <h3><%= friend.name %></h3>
-            <p>Posted on <%= friend.posts.last.date %></p>
+            <p>Last posted <%= friend.posts.last.date %></p>
           </div>
         </div>
       <% end %>

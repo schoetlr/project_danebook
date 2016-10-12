@@ -1,7 +1,9 @@
 <article class ="col-md-12 comment">
   <div class="col-md-1">
-    <% if comment.user && comment.user.profile_photo %>
-      <%= image_tag(comment.user.profile_photo.image.url(:thumb), size: "60x60") %>
+    <% if comment.user && comment.user.has_profile_photo? %>
+      <%= image_tag(comment.user.profile_photo.image.url(:thumb), height: "60px", width: "60px") %>
+    <% else %>
+      <%= image_tag "user_silhouette_generic.gif", height: "60px", width: "60px" %>
     <% end %>
   </div>
 
