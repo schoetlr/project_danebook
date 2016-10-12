@@ -1,7 +1,7 @@
 <article class="row post-article">
   <header class="col-md-12">
     <div class="col-md-3">
-      <%= image_tag post.user.profile_photo.image.url(:thumb) %>
+      <%= image_tag post.user.profile_photo.image.url(:thumb) if post.user.profile_photo %>
     </div>
     <div class="col-md-9">
       <p><%= link_to post.user.name, user_path(post.user) %></p>
