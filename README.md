@@ -1,10 +1,5 @@
 
-danebook
-
-
-
-Luke/schoetlr
-
+I built this project as part of Viking Code School.  It has photo integration with Amazon S3.  Built with Rails and Javascript.
 
 Live on Heroku:
 
